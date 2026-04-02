@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { NavUser } from "./nav-user"
+import { RoleSwitcher } from "./layout/RoleSwitcher"
 
 export function SiteHeader() {
   const data = {
@@ -21,11 +21,9 @@ export function SiteHeader() {
           className="mx-2 data-[orientation=vertical]:h-10"
         />
        
-        <div className="ml-auto flex items-center gap-2">
-        <NavUser   user={data.user}/>
-         
-           
-          
+        <div className="ml-auto flex items-center gap-4">
+          <RoleSwitcher />
+          <NavUser user={data.user}/>
         </div>
       </div>
     </header>
