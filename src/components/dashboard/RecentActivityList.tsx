@@ -15,8 +15,8 @@ export function RecentActivityList({ transactions }: RecentActivityListProps) {
 
   return (
     <Card className="flex-1">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <div className="flex flex-col gap-1">
+      <CardHeader className="flex flex-row items-center justify-between pb-1">
+        <div className="flex flex-col gap-0">
           <CardTitle className="text-lg">Recent Activity</CardTitle>
           <CardDescription className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">Your latest transactions</CardDescription>
         </div>
@@ -24,14 +24,18 @@ export function RecentActivityList({ transactions }: RecentActivityListProps) {
           View All
         </Link>
       </CardHeader>
-      <CardContent className="pt-6 space-y-6">
+      <CardContent className=" space-y-4">
         {recent.map((tx) => {
           const Icon = CATEGORY_ICONS[tx.category] || HelpCircle;
           const isIncome = tx.type === "income";
 
           return (
             <div key={tx.id} className="flex items-center justify-between group cursor-pointer transition-all hover:bg-muted/30 p-2 -mx-2 rounded-xl">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4
+              
+              
+              
+              ">
                 <div className={cn(
                   "p-2.5 rounded-xl transition-all duration-300",
                   isIncome ? "bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white" : "bg-rose-500/10 text-rose-500 group-hover:bg-rose-500 group-hover:text-white"

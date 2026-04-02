@@ -43,7 +43,7 @@ export default function Insights() {
   }, [topCategory, expenses]);
 
   return (
-    <div className="flex flex-col gap-10 pb-10 animate-in fade-in duration-700">
+    <div className="flex flex-col gap-4 pb-0 animate-in fade-in duration-700">
       {/* Header Section */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-1">
@@ -66,7 +66,7 @@ export default function Insights() {
       </div>
 
       {/* Primary Row: Trends & Top Spending */}
-      <div className="grid gap-6 lg:grid-cols-12">
+      <div className="grid gap-4 lg:grid-cols-12">
         <Card className="lg:col-span-8 overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="flex flex-col gap-1">
@@ -118,7 +118,7 @@ export default function Insights() {
       </div>
 
       {/* Observations Section */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
           <div className="flex size-8 items-center justify-center rounded-lg bg-emerald-600 text-white">
             <Sparkles className="size-4" />
@@ -126,7 +126,7 @@ export default function Insights() {
           <h2 className="text-xl font-black tracking-tight uppercase">Smart Observations</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           <ObservationCard 
             label="Savings" 
             badgeText="Savings"
@@ -155,7 +155,7 @@ export default function Insights() {
       </div>
 
       {/* Bottom Row: Projection & Recurring */}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <SpendingProjectionCard 
           currentSpend={expenses} 
           projectedSpend={expenses * 1.1} 

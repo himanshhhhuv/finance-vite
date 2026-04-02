@@ -109,8 +109,8 @@ export default function Transactions() {
             Transaction Management
           </span>
           <h1 className="text-4xl font-black tracking-tighter sm:text-5xl flex items-center gap-4">
-            Financial <span className="text-primary font-light">Activity</span> Ledger
-            <Sparkles className="size-6 text-indigo-500" />
+            Financial <span className="text-primary font-light">Activity</span> 
+           
           </h1>
         </div>
         <div className="flex items-center gap-3">

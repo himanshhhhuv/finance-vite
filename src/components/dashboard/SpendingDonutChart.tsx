@@ -16,7 +16,7 @@ export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
         <CardTitle className="text-lg">Spending Breakdown</CardTitle>
       </CardHeader>
       <CardContent className="flex items-center gap-8 pt-6">
-        <div className="h-[200px] w-[200px] relative">
+        <div className="h-[170px] w-[170px] relative">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
