@@ -9,12 +9,14 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+
 import { Link, useLocation } from "react-router";
-import { GalleryVerticalEnd, Home, BookOpen, Settings } from "lucide-react";
+import { Sparkles,  Zap, Settings,LayoutGrid ,History} from "lucide-react";
 
 const navItems = [
-  { title: "Home", url: "/dashboard", icon: Home },
-  { title: "Learning Resources", url: "/learning", icon: BookOpen },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutGrid },
+  { title: "Transactions", url: "/transactions", icon: History },
+    { title: "Insights", url: "/insights", icon: Zap },
   { title: "Settings", url: "/settings", icon: Settings },
 ];
 
@@ -22,17 +24,17 @@ export function AppSidebar() {
   const location = useLocation();
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" variant="inset">
       {/* Logo / Brand */}
-      <SidebarHeader className="border-b border-sidebar-border px-3 py-4">
+      <SidebarHeader className="border-b border-sidebar-border px-3 py-2">
         <Link
           to="/dashboard"
           className="flex items-center gap-2 font-bold text-sm tracking-tight"
         >
-          <div className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center">
-            <GalleryVerticalEnd className="size-4" />
+          <div className=" flex size-8 shrink-0 items-center justify-center">
+            <Sparkles/>
           </div>
-          <span className="truncate text-sidebar-foreground">Mapnexa Lidar</span>
+          <span className="truncate text-sidebar-foreground">finance.Inc</span>
         </Link>
       </SidebarHeader>
 
@@ -63,10 +65,9 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      {/* Footer */}
-      <SidebarFooter className="border-t border-sidebar-border px-3 py-3 flex items-center justify-center text-xs text-muted-foreground">
-        v1.0
-      </SidebarFooter>
+    
+   
+     
     </Sidebar>
   );
 }
