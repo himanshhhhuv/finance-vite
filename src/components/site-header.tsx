@@ -2,6 +2,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { NavUser } from "./nav-user"
 import { RoleSwitcher } from "./layout/RoleSwitcher"
+import { ModeToggle } from "./mode-toggle"
 
 export function SiteHeader() {
   const data = {
@@ -23,7 +24,8 @@ export function SiteHeader() {
        
         <div className="ml-auto flex items-center gap-4">
           <RoleSwitcher />
-          <NavUser user={data.user}/>
+          <ModeToggle />
+          {/* <NavUser user={data.user}/> */}
         </div>
       </div>
     </header>

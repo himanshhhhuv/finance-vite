@@ -23,7 +23,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#fcfcfd] text-slate-900 animate-in fade-in duration-1000 select-none">
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background text-foreground animate-in fade-in duration-1000 select-none">
       {/* Background ghost 404 */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
         <span className="text-[40vw] font-black tracking-tighter leading-none">404</span>
@@ -33,7 +33,7 @@ export default function NotFound() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-2xl animate-in slide-in-from-bottom-5 duration-1000">
         {/* Centerpiece Icon Group */}
         <div className="relative flex flex-col items-center mb-12">
-            <div className="size-24 rounded-full bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/20 ring-8 ring-blue-500/5">
+            <div className="size-24 rounded-full bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/20 dark:shadow-blue-900/40 ring-8 ring-blue-500/5 dark:ring-blue-500/10">
                 <AlertCircle className="size-10 text-white" strokeWidth={2.5} />
             </div>
             <div className="h-0.5 w-12 bg-blue-600/20 mt-6 rounded-full" />
@@ -41,10 +41,10 @@ export default function NotFound() {
 
         {/* Heading */}
         <div className="space-y-4 mb-12">
-            <h1 className="text-5xl font-black tracking-tight text-blue-900 sm:text-6xl">
+            <h1 className="text-5xl font-black tracking-tight text-blue-900 dark:text-blue-100 sm:text-6xl">
                 Equilibrium <span className="font-light">Unfound</span>
             </h1>
-            <p className="text-lg font-medium text-slate-500 max-w-lg leading-relaxed">
+            <p className="text-lg font-medium text-muted-foreground max-w-lg leading-relaxed">
                 The financial data you are seeking has moved to a new jurisdiction or does not exist in our current ledger.
             </p>
         </div>
@@ -53,13 +53,13 @@ export default function NotFound() {
         <div className="flex flex-col items-center gap-6">
             <Button 
                 onClick={() => navigate("/dashboard")}
-                className="h-14 px-8 rounded-full bg-blue-600 text-base font-bold uppercase tracking-wider text-white shadow-xl shadow-blue-900/20 hover:bg-blue-700 transition-all hover:scale-105 active:scale-95"
+                className="h-14 px-8 rounded-full bg-blue-600 text-base font-bold uppercase tracking-wider text-white shadow-xl shadow-blue-900/20 dark:shadow-blue-900/40 hover:bg-blue-700 transition-all hover:scale-105 active:scale-95"
             >
                 Return to Dashboard
                 <ArrowRight className="ml-2 size-5" />
             </Button>
             
-            <button className="flex items-center gap-2 text-sm font-bold text-blue-800 uppercase tracking-widest hover:underline decoration-2 underline-offset-4">
+            <button className="flex items-center gap-2 text-sm font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest hover:underline decoration-2 underline-offset-4">
                 <HelpCircle className="size-4" />
                 Contact Institutional Support
             </button>
@@ -68,37 +68,37 @@ export default function NotFound() {
 
       {/* Floating Info Card */}
       <div className="absolute bottom-10 right-10 hidden xl:block animate-in slide-in-from-right-10 duration-1000 delay-500 fill-mode-both">
-        <div className="w-80 rounded-3xl bg-white p-8 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] border border-slate-100">
+        <div className="w-80 rounded-3xl bg-card p-8 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] dark:shadow-2xl dark:shadow-blue-900/10 border border-border">
             <div className="flex flex-col gap-4">
-                <span className="text-sm font-black text-blue-900">Did you know?</span>
-                <p className="text-xs leading-relaxed text-slate-500 font-medium">
+                <span className="text-sm font-black text-blue-900 dark:text-blue-100">Did you know?</span>
+                <p className="text-xs leading-relaxed text-muted-foreground font-medium">
                     Our Sovereign Intelligence engine updates global treasury benchmarks every 15 minutes to ensure absolute equilibrium.
                 </p>
                 <div className="flex items-center gap-1 mt-2">
                     <span className="size-2 rounded-full bg-blue-600" />
-                    <span className="size-2 rounded-full bg-slate-200" />
-                    <span className="size-2 rounded-full bg-slate-200" />
+                    <span className="size-2 rounded-full bg-muted" />
+                    <span className="size-2 rounded-full bg-muted" />
                 </div>
             </div>
         </div>
       </div>
 
       {/* Footer Metadata */}
-      <div className="absolute bottom-10 left-10 right-10 sm:left-auto sm:right-auto flex flex-col sm:flex-row items-center gap-8 md:gap-16 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 animate-in fade-in duration-1000 delay-700 fill-mode-both">
+      <div className="absolute bottom-10 left-10 right-10 sm:left-auto sm:right-auto flex flex-col sm:flex-row items-center gap-8 md:gap-16 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 animate-in fade-in duration-1000 delay-700 fill-mode-both">
          <div className="flex items-center gap-3">
-            <span className="text-slate-300">Status</span>
-            <span className="flex items-center gap-2 text-slate-900">
+            <span className="text-muted-foreground/40">Status</span>
+            <span className="flex items-center gap-2 text-foreground">
                 <span className="size-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
                 Systems Operational
             </span>
          </div>
          <div className="flex items-center gap-3">
-            <span className="text-slate-300">Reference</span>
-            <span className="text-slate-900">REQ-SI-404-0X92</span>
+            <span className="text-muted-foreground/40">Reference</span>
+            <span className="text-foreground">REQ-SI-404-0X92</span>
          </div>
          <div className="flex items-center gap-3">
-            <span className="text-slate-300">Timestamp</span>
-            <span className="text-slate-900">UTC {time}</span>
+            <span className="text-muted-foreground/40">Timestamp</span>
+            <span className="text-foreground">UTC {time}</span>
          </div>
       </div>
 
