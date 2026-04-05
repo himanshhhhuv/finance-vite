@@ -74,7 +74,15 @@ Comprehensive transaction tracking with powerful features:
   - Inline edit button on each transaction row
   - Pre-populated form with existing data
   - Full field editing capabilities
-- **Delete Transactions** (Admin only): Single-click deletion with visual feedback
+- **Delete Transactions** (Admin only):
+  - Confirmation dialog before deletion
+  - Shows transaction details for review
+  - Cannot be undone warning
+- **Export Functionality**:
+  - Export to CSV format
+  - Export to JSON format
+  - Timestamped file names
+  - Works with filtered data
 
 ### 3. Financial Insights
 
@@ -110,12 +118,33 @@ Switch roles easily using the role switcher in the header.
 
 ### 5. UI/UX Excellence
 
+**Design & Layout:**
 - **Responsive Layout**: Adapts seamlessly to all screen sizes
 - **Dark/Light Mode**: Toggle between themes with smooth transitions
-- **Loading States**: Skeleton loaders and animations
-- **Empty States**: Graceful handling of no-data scenarios
-- **Error Boundaries**: Prevents app crashes with friendly error pages
-- **404 Page**: Custom-designed "not found" page with navigation
+- **Custom 404 Page**: Branded error page with real-time clock and navigation
+
+**User Feedback:**
+- **Toast Notifications (Sonner)**: Professional toast feedback for all operations
+  - Success toasts for create/update/delete with descriptions
+  - Error toasts for validation failures
+  - Export success notifications with counts
+  - Auto-dismissing with smooth animations
+- **Delete Confirmation**: Review transaction before permanent deletion
+- **Form Validation**: Real-time error messages with helpful guidance
+- **Loading States**: Smooth animations during data operations
+- **Empty States**: Helpful messages when no data is available
+
+**Interactions:**
+- **Hover Effects**: Icons appear on transaction hover for clean UI
+- **Smooth Animations**: Fade-ins, slide-ins, and transitions throughout
+- **Visual Feedback**: Color-coded actions (blue=edit, red=delete)
+- **Error Boundaries**: Prevents crashes with graceful error handling
+
+**Keyboard Shortcuts:**
+- **Ctrl+1**: Navigate to Dashboard
+- **Ctrl+2**: Navigate to Transactions
+- **Ctrl+3**: Navigate to Insights
+- Quick navigation for power users
 
 ## 🛠 Tech Stack
 
@@ -417,13 +446,19 @@ This project fulfills all core and optional requirements:
 
 ### ✅ Optional Enhancements
 
-| Enhancement | Status |
-|------------|--------|
-| Dark Mode | ✅ Fully implemented |
-| Data Persistence | ✅ LocalStorage via Zustand |
-| Animations/Transitions | ✅ Throughout the app |
-| Advanced Filtering | ✅ Combined search + category |
-| Error Boundaries | ✅ App-wide error handling |
+| Enhancement | Status | Details |
+|------------|--------|---------|
+| Dark Mode | ✅ | Full theme support with toggle |
+| Data Persistence | ✅ | LocalStorage via Zustand middleware |
+| Animations/Transitions | ✅ | Smooth fade-ins, hover effects, chart animations |
+| Advanced Filtering | ✅ | Combined search + category filter |
+| Export Functionality | ✅ | CSV & JSON export with timestamps |
+| Error Boundaries | ✅ | App-wide error handling with recovery |
+| Keyboard Shortcuts | ✅ | Ctrl+1/2/3 for quick navigation |
+| Toast Notifications | ✅ | Success feedback for all actions |
+| Confirmation Dialogs | ✅ | Delete confirmation with transaction preview |
+
+**Implemented: 9/9 Optional Features** 🎉
 
 ## 🧪 Scripts
 

@@ -14,7 +14,7 @@ import { TransactionFilters } from "./TransactionFilters";
 interface TransactionTableProps {
   transactions: Transaction[];
   role: string | null;
-  onDelete: (id: string) => void;
+  onDelete: (transaction: Transaction) => void;
   onEdit?: (transaction: Transaction) => void;
   search: string;
   onSearchChange: (value: string) => void;

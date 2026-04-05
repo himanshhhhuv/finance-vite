@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(pkill:*)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(use sonner from shadcn for toast)",
+      "Read(//d D:/interview/**)",
+      "Bash(npx shadcn@latest add toast)",
+      "Bash(pnpm dlx:*)"
+    ]
+  }
+}

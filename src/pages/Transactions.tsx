@@ -3,6 +3,8 @@ import { useFinanceStore } from "@/store/usefinance.store";
 import { TransactionsHeader } from "@/components/transactions/TransactionsHeader";
 import { TransactionTable } from "@/components/transactions/TransactionTable";
 import { AddTransactionDialog } from "@/components/transactions/AddTransactionDialog";
+import { DeleteConfirmDialog } from "@/components/transactions/DeleteConfirmDialog";
+import { toast } from "sonner";
 import type { Transaction } from "@/types/transaction.type";
 
 export default function Transactions() {
@@ -11,6 +13,8 @@ export default function Transactions() {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [deletingTransaction, setDeletingTransaction] = useState<Transaction | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   const filteredTransactions = useMemo(() => {
     return transactions.filter((t) => {
@@ -22,6 +26,20 @@ export default function Transactions() {
       return matchesSearch && matchesCategory;
     });
   }, [transactions, search, categoryFilter]);
+
+  const handleAddTransaction = (transaction: Transaction) => {
+    addTransaction(transaction);
+    toast.success("Transaction added successfully!", {
+      description: `${transaction.description} - $${transaction.amount}`,
+    });
+  };
+
+  const handleUpdateTransaction = (id: string, transaction: Transaction) => {
+    updateTransaction(id, transaction);
+    toast.success("Transaction updated successfully!", {
+      description: `${transaction.description} - $${transaction.amount}`,
+    });
+  };
 
   const handleEditTransaction = (transaction: Transaction) => {
     setEditingTransaction(transaction);
@@ -35,14 +53,40 @@ export default function Transactions() {
     }
   };
 
+  const handleDeleteClick = (transaction: Transaction) => {
+    setDeletingTransaction(transaction);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (deletingTransaction) {
+      deleteTransaction(deletingTransaction.id);
+      toast.success("Transaction deleted successfully!", {
+        description: deletingTransaction.description,
+      });
+      setDeletingTransaction(null);
+    }
+  };
+
+  const handleDeleteDialogClose = (open: boolean) => {
+    setIsDeleteDialogOpen(open);
+    if (!open) {
+      setDeletingTransaction(null);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-10 pb-10 animate-in fade-in duration-700">
-      <TransactionsHeader role={role} onAddTransaction={addTransaction} />
+      <TransactionsHeader
+        role={role}
+        onAddTransaction={handleAddTransaction}
+        transactions={filteredTransactions}
+      />
 
       <TransactionTable
         transactions={filteredTransactions}
         role={role}
-        onDelete={deleteTransaction}
+        onDelete={handleDeleteClick}
         onEdit={handleEditTransaction}
         search={search}
         onSearchChange={setSearch}
@@ -52,11 +96,19 @@ export default function Transactions() {
 
       {/* Edit Dialog */}
       <AddTransactionDialog
-        onAddTransaction={addTransaction}
-        onUpdateTransaction={updateTransaction}
+        onAddTransaction={handleAddTransaction}
+        onUpdateTransaction={handleUpdateTransaction}
         editTransaction={editingTransaction}
         isOpen={isEditDialogOpen}
         onOpenChange={handleEditDialogClose}
+      />
+
+      {/* Delete Confirmation Dialog */}
+      <DeleteConfirmDialog
+        transaction={deletingTransaction}
+        isOpen={isDeleteDialogOpen}
+        onOpenChange={handleDeleteDialogClose}
+        onConfirm={handleDeleteConfirm}
       />
 
       <style>{`

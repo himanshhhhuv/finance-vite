@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 interface TransactionRowProps {
   tx: Transaction;
   role: string | null;
-  onDelete: (id: string) => void;
+  onDelete: (transaction: Transaction) => void;
   onEdit?: (transaction: Transaction) => void;
 }
 
@@ -76,7 +76,7 @@ export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowPro
               variant="ghost"
               size="sm"
               className="h-8 w-8 p-0 text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors rounded-lg"
-              onClick={() => onDelete(tx.id)}
+              onClick={() => onDelete(tx)}
               title="Delete transaction"
             >
               <Trash2 className="size-4" />
