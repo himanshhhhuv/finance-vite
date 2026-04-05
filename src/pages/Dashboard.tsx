@@ -147,10 +147,13 @@ export default function Dashboard() {
                         boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)",
                       }}
                       itemStyle={{ fontSize: "12px", fontWeight: "bold" }}
-                      formatter={(value: number, name: string) => [
-                        `$${value.toLocaleString()}`,
-                        name.charAt(0).toUpperCase() + name.slice(1),
-                      ]}
+                      formatter={(value: number | undefined, name: string) => {
+                        if (value === undefined) return ['', ''];
+                        return [
+                          `$${value.toLocaleString()}`,
+                          name.charAt(0).toUpperCase() + name.slice(1),
+                        ];
+                      }}
                     />
                     <Area
                       type="monotone"
