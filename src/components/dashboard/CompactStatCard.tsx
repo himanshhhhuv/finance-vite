@@ -47,11 +47,11 @@ export function CompactStatCard({
           <h3 className="text-3xl font-black tracking-tighter">{formatCurrency(value)}</h3>
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-muted/30">
+        <div className="hidden sm:flex items-center justify-between pt-4 border-t border-muted/30">
           <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground/40">
             Previous Month: {formatCurrency(previousValue)}
           </span>
-       
+
         </div>
       </CardContent>
     </Card>

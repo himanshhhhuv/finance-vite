@@ -20,13 +20,13 @@ export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowPro
 
   return (
     <TableRow key={tx.id} className="group transition-all hover:bg-muted/30">
-      <TableCell className="pl-6 text-[11px] font-bold text-muted-foreground uppercase">
+      <TableCell className="pl-4 sm:pl-6 text-[11px] font-bold text-muted-foreground uppercase">
         {formatDate(tx.date)}
       </TableCell>
-      <TableCell className="font-black tracking-tight">
+      <TableCell className="font-black tracking-tight text-sm">
         {tx.description}
       </TableCell>
-      <TableCell>
+      <TableCell className="hidden md:table-cell">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-muted group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
             <Icon className="size-3.5" />
@@ -36,7 +36,7 @@ export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowPro
           </span>
         </div>
       </TableCell>
-      <TableCell>
+      <TableCell className="hidden sm:table-cell">
         <Badge
           variant="secondary"
           className={cn(
@@ -51,7 +51,7 @@ export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowPro
       </TableCell>
       <TableCell
         className={cn(
-          "text-right pr-6 font-black tracking-tighter text-sm",
+          "text-right pr-4 sm:pr-6 font-black tracking-tighter text-sm",
           isIncome ? "text-emerald-500" : "text-rose-500"
         )}
       >
@@ -59,7 +59,7 @@ export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowPro
         {formatCurrency(tx.amount)}
       </TableCell>
       {role === "admin" && (
-        <TableCell className="pr-6">
+        <TableCell className="pr-4 sm:pr-6">
           <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             {onEdit && (
               <Button

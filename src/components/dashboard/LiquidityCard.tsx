@@ -16,10 +16,11 @@ export function LiquidityCard({ balance }: LiquidityCardProps) {
            <h2 className="text-5xl font-black tracking-tighter mt-1">{formatCurrency(balance)}</h2>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 flex-wrap">
           <Button size="sm" variant="secondary" className="gap-2 rounded-lg bg-white/10 text-white hover:bg-white/20 border-white/20 px-3 font-bold uppercase tracking-tighter transition-all">
             <CreditCard className="size-3.5" />
-            Main Checking
+            <span className="hidden xs:inline sm:inline">Main Checking</span>
+            <span className="xs:hidden sm:hidden">Checking</span>
           </Button>
           <Button size="sm" variant="secondary" className="gap-2 rounded-lg bg-white/10 text-white hover:bg-white/20 border-white/20 px-3 font-bold uppercase tracking-tighter transition-all">
             <Landmark className="size-3.5" />

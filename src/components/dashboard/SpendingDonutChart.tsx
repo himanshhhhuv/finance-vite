@@ -28,16 +28,16 @@ export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
       <CardHeader>
         <CardTitle className="text-lg">Spending Breakdown</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center gap-8 pt-6">
-        <div className="h-[170px] w-[170px] relative min-h-[170px] min-w-[170px]">
-          <ResponsiveContainer width="100%" height="100%" minHeight={170} minWidth={170}>
+      <CardContent className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pt-6">
+        <div className="h-[140px] w-[140px] sm:h-[170px] sm:w-[170px] relative min-h-[140px] min-w-[140px] sm:min-h-[170px] sm:min-w-[170px]">
+          <ResponsiveContainer width="100%" height="100%" minHeight={140} minWidth={140}>
             <PieChart>
               <Pie
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius={65}
-                outerRadius={85}
+                innerRadius={55}
+                outerRadius={70}
                 paddingAngle={8}
                 dataKey="value"
                 stroke="none"

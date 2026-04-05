@@ -46,19 +46,19 @@ export function TransactionTable({
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent border-b">
-                <TableHead className="w-[120px] font-black uppercase tracking-widest text-[10px] pl-6 h-12">
+                <TableHead className="w-[100px] sm:w-[120px] font-black uppercase tracking-wide sm:tracking-widest text-[11px] sm:text-[10px] pl-4 sm:pl-6 h-12">
                   Date
                 </TableHead>
-                <TableHead className="font-black uppercase tracking-widest text-[10px] h-12">
+                <TableHead className="font-black uppercase tracking-wide sm:tracking-widest text-[11px] sm:text-[10px] h-12">
                   Description
                 </TableHead>
-                <TableHead className="font-black uppercase tracking-widest text-[10px] h-12">
+                <TableHead className="hidden md:table-cell font-black uppercase tracking-wide sm:tracking-widest text-[11px] sm:text-[10px] h-12">
                   Category
                 </TableHead>
-                <TableHead className="font-black uppercase tracking-widest text-[10px] h-12">
+                <TableHead className="hidden sm:table-cell font-black uppercase tracking-wide sm:tracking-widest text-[11px] sm:text-[10px] h-12">
                   Type
                 </TableHead>
-                <TableHead className="text-right font-black uppercase tracking-widest text-[10px] pr-6 h-12">
+                <TableHead className="text-right font-black uppercase tracking-wide sm:tracking-widest text-[11px] sm:text-[10px] pr-4 sm:pr-6 h-12">
                   Amount
                 </TableHead>
                 {role === "admin" && (

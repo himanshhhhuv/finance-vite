@@ -33,10 +33,10 @@ export function TransactionFilters({
           onChange={(e) => onSearchChange(e.target.value)}
         />
       </div>
-      <div className="flex items-center gap-2">
-        <Filter className="size-4 text-muted-foreground" />
+      <div className="flex items-center gap-2 w-full sm:w-auto">
+        <Filter className="size-4 text-muted-foreground shrink-0" />
         <Select value={categoryFilter} onValueChange={onCategoryFilterChange}>
-          <SelectTrigger className="w-[180px] h-10 rounded-xl bg-background border-muted-foreground/20">
+          <SelectTrigger className="w-full sm:w-[180px] h-10 rounded-xl bg-background border-muted-foreground/20">
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
           <SelectContent>

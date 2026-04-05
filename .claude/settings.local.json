@@ -7,7 +7,8 @@
       "Bash(use sonner from shadcn for toast)",
       "Read(//d D:/interview/**)",
       "Bash(npx shadcn@latest add toast)",
-      "Bash(pnpm dlx:*)"
+      "Bash(pnpm dlx:*)",
+      "Bash(pnpm run:*)"
     ]
   }
 }

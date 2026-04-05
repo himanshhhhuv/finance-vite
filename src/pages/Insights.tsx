@@ -92,12 +92,13 @@ export default function Insights() {
             Financial Insights <span className="text-primary font-light">&</span> Trends
           </h1>
         </div>
-        <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" className="h-9 gap-2 rounded-full border-muted-foreground/20 px-4 font-bold uppercase tracking-tighter transition-all hover:bg-muted/50">
+        <div className="flex items-center gap-2 flex-wrap">
+          <Button variant="outline" size="sm" className="h-9 gap-2 rounded-full border-muted-foreground/20 px-3 sm:px-4 font-bold uppercase tracking-tighter transition-all hover:bg-muted/50">
             <FileDown className="size-3.5" />
-            Export Report
+            <span className="hidden sm:inline">Export Report</span>
+            <span className="sm:hidden">Export</span>
           </Button>
-          <Button size="sm" className="h-9 gap-2 rounded-full bg-blue-900 px-4 font-bold uppercase tracking-tighter text-white transition-all hover:bg-blue-800">
+          <Button size="sm" className="h-9 gap-2 rounded-full bg-blue-900 px-3 sm:px-4 font-bold uppercase tracking-tighter text-white transition-all hover:bg-blue-800 hidden sm:flex">
             Custom Range
           </Button>
         </div>
