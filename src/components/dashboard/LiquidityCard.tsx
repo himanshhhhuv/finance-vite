@@ -9,7 +9,7 @@ interface LiquidityCardProps {
 
 export function LiquidityCard({ balance }: LiquidityCardProps) {
   return (
-    <Card className="relative overflow-hidden border-0 bg-blue-600 p-8 text-white shadow-xl lg:col-span-2">
+    <Card className="relative overflow-hidden border-0 bg-blue-600 p-6 md:p-8 text-white shadow-xl md:col-span-2 xl:col-span-2">
       <div className="relative z-10 flex flex-col gap-6 h-full justify-center">
         <div>
            <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-100/60">Available Liquidity</p>

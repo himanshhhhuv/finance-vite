@@ -9,9 +9,9 @@ A modern, interactive finance dashboard built with React, TypeScript, and Vite. 
 
 ## 🌐 Live Demo
 
-Access the application at: `http://localhost:5174/` (after running locally)
+Access the application at: `http://localhost:5173/` (after running locally)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -24,7 +24,7 @@ Access the application at: `http://localhost:5174/` (after running locally)
 - [Scripts](#scripts)
 - [Code Quality](#code-quality)
 
-## 🎯 Overview
+## Overview
 
 This Finance Dashboard is designed to help users track and understand their financial activity through an intuitive interface. Built with modern web technologies, it offers real-time analytics, transaction management, and intelligent insights.
 
@@ -38,7 +38,7 @@ This Finance Dashboard is designed to help users track and understand their fina
 - **Data Persistence**: Local storage integration for data retention
 - **Type Safety**: Full TypeScript implementation with strict mode
 
-## ✨ Features
+## Features
 
 ### 1. Dashboard Overview
 
@@ -79,10 +79,12 @@ Comprehensive transaction tracking with powerful features:
   - Shows transaction details for review
   - Cannot be undone warning
 - **Export Functionality**:
-  - Export to CSV format
-  - Export to JSON format
-  - Timestamped file names
-  - Works with filtered data
+  - Export to CSV format for spreadsheet analysis
+  - Export to JSON format for data integration
+  - Timestamped file names for easy organization
+  - Works seamlessly with filtered and searched data
+  - Includes all transaction fields (date, description, amount, category, type)
+  - Compatible with Excel, Google Sheets, and other data tools
 
 ### 3. Financial Insights
 
@@ -171,8 +173,18 @@ Switch roles easily using the role switcher in the header.
 
 - **Recharts 3.8** - Composable charting library
   - Area charts for trends
-  - Donut charts for categorical data
+  - Donut charts for categorical data 
   - Bar charts for comparisons
+  - Responsive containers with proper z-index layering
+  - Interactive hover states and animations
+
+### User Experience
+
+- **Sonner** - Beautiful toast notifications
+  - Success/error feedback for all operations
+  - Auto-dismiss with custom durations
+  - Rich colors and close buttons
+
 
 ### Code Quality
 
@@ -272,7 +284,7 @@ finance-vite/
 
 4. **Open your browser**
    ```
-   Navigate to: http://localhost:5174/
+   Navigate to: http://localhost:5173/
    ```
 
 ### Building for Production
@@ -343,11 +355,51 @@ npm run preview
 - **Category Filter**: Use the dropdown to filter by specific category
 - Both filters work together for refined results
 
+### Exporting Transaction Data
+
+The application allows you to export your transaction data in multiple formats for external analysis or record keeping.
+
+**How to Export:**
+
+1. Navigate to the **Transactions** page
+2. Use filters or search to narrow down the data (optional)
+3. Click the **"Export"** dropdown button in the header
+4. Select your preferred format:
+   - **CSV** - Best for opening in Excel, Google Sheets, or Numbers
+   - **JSON** - Ideal for importing into other applications or databases
+
+**What Gets Exported:**
+
+The export includes all visible transactions based on your current filters. Each transaction contains:
+- Transaction date (formatted as YYYY-MM-DD)
+- Description
+- Amount (in your currency)
+- Category
+- Type (Income or Expense)
+
+**File Naming:**
+
+Exported files are automatically named with timestamps to help you organize your exports:
+- CSV files: `transactions_YYYY-MM-DD_HH-MM-SS.csv`
+- JSON files: `transactions_YYYY-MM-DD_HH-MM-SS.json`
+
+**Export with Filters:**
+
+The export respects your active filters, which means you can:
+- Export only specific categories (e.g., just food expenses)
+- Export transactions matching a search term
+- Export a subset of your data for targeted analysis
+- Get a complete dump of all transactions by clearing all filters first
+
+**Using Exported Data:**
+
+CSV exports are ready to open directly in spreadsheet applications. The format includes headers in the first row, making it easy to sort, filter, and analyze using pivot tables or formulas. JSON exports maintain the exact data structure from the application, perfect for backup purposes or importing into accounting software.
+
 ### Understanding the Charts
 
 **Balance Trend (Dashboard)**
-- Green line: Income over time
-- Red dashed line: Expenses over time
+- Light blue line: Income over time
+- Blue dashed line: Expenses over time
 - Toggle between 6M, 1Y, or ALL time ranges
 - Hover over points to see exact values
 
@@ -415,52 +467,8 @@ Click the role dropdown in the header and select:
 
 The UI updates immediately to reflect permissions.
 
-## 📝 Assignment Requirements
 
-This project fulfills all core and optional requirements:
-
-### ✅ Core Requirements
-
-| Requirement | Implementation | Status |
-|------------|----------------|--------|
-| **Dashboard Overview** | Fully implemented with balance, income, expenses cards | ✅ |
-| Summary Cards | Liquidity, Income, Expenses with trend indicators | ✅ |
-| Time-based Visualization | Area chart with 6M/1Y/ALL filters | ✅ |
-| Categorical Visualization | Donut chart for spending breakdown | ✅ |
-| **Transactions Section** | Full CRUD with filtering | ✅ |
-| Transaction Details | Date, Amount, Category, Type, Description | ✅ |
-| Filtering | Search + Category filter | ✅ |
-| Sorting | Implicit by date (newest first) | ✅ |
-| **Role-Based UI** | Admin vs Viewer with different permissions | ✅ |
-| Role Simulation | Frontend role switcher | ✅ |
-| UI Adaptation | Dynamic show/hide of controls | ✅ |
-| **Insights Section** | Comprehensive analytics page | ✅ |
-| Highest Spending | Category breakdown with percentage | ✅ |
-| Monthly Comparison | Bar chart comparison | ✅ |
-| Observations | 3 smart insight cards | ✅ |
-| **State Management** | Zustand with persistence | ✅ |
-| Proper State Handling | Transactions, filters, role | ✅ |
-| **UI/UX** | Clean, modern, responsive design | ✅ |
-| Responsive Design | Works on all screen sizes | ✅ |
-| Empty States | Graceful handling throughout | ✅ |
-
-### ✅ Optional Enhancements
-
-| Enhancement | Status | Details |
-|------------|--------|---------|
-| Dark Mode | ✅ | Full theme support with toggle |
-| Data Persistence | ✅ | LocalStorage via Zustand middleware |
-| Animations/Transitions | ✅ | Smooth fade-ins, hover effects, chart animations |
-| Advanced Filtering | ✅ | Combined search + category filter |
-| Export Functionality | ✅ | CSV & JSON export with timestamps |
-| Error Boundaries | ✅ | App-wide error handling with recovery |
-| Keyboard Shortcuts | ✅ | Ctrl+1/2/3 for quick navigation |
-| Toast Notifications | ✅ | Success feedback for all actions |
-| Confirmation Dialogs | ✅ | Delete confirmation with transaction preview |
-
-**Implemented: 9/9 Optional Features** 🎉
-
-## 🧪 Scripts
+## Scripts
 
 ```bash
 # Development
@@ -496,12 +504,6 @@ This project maintains high code quality standards:
 - Type guards for runtime validation
 - Zod-like validation in store
 
-### Performance Optimizations
-
-- Memoized calculations with `useMemo`
-- Efficient re-renders
-- Code splitting with React lazy loading (ready for implementation)
-- Optimized bundle size
 
 ## 🎓 Technical Decisions
 
@@ -530,7 +532,6 @@ This project maintains high code quality standards:
 
 Potential features for expansion:
 
-- [ ] Export to CSV/JSON functionality
 - [ ] PDF report generation
 - [ ] Date range picker for custom insights
 - [ ] Transaction categories customization
@@ -541,17 +542,7 @@ Potential features for expansion:
 - [ ] Real-time data sync
 - [ ] Mobile app (React Native)
 
-## 📄 License
-
-This project is created as part of an interview assignment.
-
 ## 👨‍💻 Developer
 
 Built with ⚡ by Himanshu Verma
 
----
-
-**Last Updated**: April 2026  
-**Node Version**: 18+  
-**React Version**: 19.2.4  
-**TypeScript Version**: 5.9.3

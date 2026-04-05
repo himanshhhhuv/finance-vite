@@ -7,6 +7,31 @@ interface SpendingDonutChartProps {
   data: { name: string; value: number }[];
 }
 
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    name: string;
+    value: number;
+    payload: { name: string; value: number };
+  }>;
+}
+
+const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-popover text-popover-foreground border border-border rounded-lg shadow-xl p-2.5 min-w-32 z-[9999] relative">
+        <p className="text-[11px] font-bold uppercase tracking-wide mb-1">
+          {payload[0].name}
+        </p>
+        <p className="text-base font-black text-primary">
+          ${payload[0].value?.toLocaleString()}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
 export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
@@ -24,13 +49,13 @@ export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
   }
 
   return (
-    <Card className="flex-1">
+    <Card className="flex-1 overflow-visible">
       <CardHeader>
         <CardTitle className="text-lg">Spending Breakdown</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pt-6">
-        <div className="h-[140px] w-[140px] sm:h-[170px] sm:w-[170px] relative min-h-[140px] min-w-[140px] sm:min-h-[170px] sm:min-w-[170px]">
-          <ResponsiveContainer width="100%" height="100%" minHeight={140} minWidth={140}>
+      <CardContent className="flex flex-col items-center gap-6 pt-6 overflow-visible">
+        <div className="h-[160px] w-[160px] relative min-h-[160px] min-w-[160px] group/chart">
+          <ResponsiveContainer width="100%" height="100%" minHeight={160} minWidth={160}>
             <PieChart>
               <Pie
                 data={data}
@@ -46,30 +71,27 @@ export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip
-                contentStyle={{ backgroundColor: "var(--card)", borderColor: "var(--border)", borderRadius: "var(--radius)" }}
-                itemStyle={{ fontSize: "12px", fontWeight: "bold" }}
-              />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
             </PieChart>
           </ResponsiveContainer>
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="flex flex-col items-center">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 group-hover/chart:opacity-0 transition-opacity">
+            <div className="flex flex-col items-center rounded-lg px-3 py-2">
               <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60">Total</span>
               <span className="text-xl font-black tracking-tighter">${total.toLocaleString()}</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 flex-1">
+        <div className="flex flex-col gap-2.5 w-full">
           {data.slice(0, 5).map((item, index) => (
-            <div key={item.name} className="flex items-center justify-between group">
-              <div className="flex items-center gap-2">
-                <div className="size-2.5 rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }} />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">
+            <div key={item.name} className="flex items-center justify-between group px-2">
+              <div className="flex items-center gap-2.5">
+                <div className="size-3 rounded-full shrink-0" style={{ backgroundColor: COLORS[index % COLORS.length] }} />
+                <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground group-hover:text-foreground transition-colors">
                   {item.name}
                 </span>
               </div>
-              <span className="text-[10px] font-black">{Math.round((item.value / total) * 100)}%</span>
+              <span className="text-xs font-black ml-2 shrink-0">{Math.round((item.value / total) * 100)}%</span>
             </div>
           ))}
         </div>

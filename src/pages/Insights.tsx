@@ -105,8 +105,8 @@ export default function Insights() {
       </div>
 
       {/* Primary Row: Trends & Top Spending */}
-      <div className="grid gap-4 lg:grid-cols-12">
-        <Card className="lg:col-span-8 overflow-hidden">
+      <div className="grid gap-4 md:grid-cols-1 xl:grid-cols-12">
+        <Card className="xl:col-span-8 overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="flex flex-col gap-1">
               <CardTitle className="text-xl">Monthly Comparison</CardTitle>
@@ -151,10 +151,10 @@ export default function Insights() {
           </CardContent>
         </Card>
 
-        <HighestSpendingCard 
-           percentage={spendingPercentage || 40} 
-           category={topCategory.name} 
-           className="lg:col-span-4"
+        <HighestSpendingCard
+           percentage={spendingPercentage || 40}
+           category={topCategory.name}
+           className="xl:col-span-4"
         />
       </div>
 

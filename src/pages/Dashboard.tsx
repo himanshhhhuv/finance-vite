@@ -47,7 +47,7 @@ export default function Dashboard() {
       </div>
 
       {/* Top Row: Liquidity & Key Stats */}
-      <div className="grid gap-4 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <LiquidityCard balance={balance} />
         <CompactStatCard
           title="Monthly Income"
@@ -70,9 +70,9 @@ export default function Dashboard() {
       </div>
 
       {/* Main Section: Trend & Analytics */}
-      <div className="grid gap-4 lg:grid-cols-12">
+      <div className="grid gap-4 md:grid-cols-1 xl:grid-cols-12">
         {/* Left Span: Balance Trend */}
-        <Card className="lg:col-span-8 overflow-hidden group">
+        <Card className="xl:col-span-8 overflow-hidden group">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="flex flex-col gap-1">
               <CardTitle className="text-xl">Balance Trend</CardTitle>
@@ -184,7 +184,7 @@ export default function Dashboard() {
         </Card>
 
         {/* Right Span: Breakdown & Activity */}
-        <div className="lg:col-span-4 flex flex-col gap-4">
+        <div className="xl:col-span-4 flex flex-col gap-4 md:grid md:grid-cols-2 xl:grid-cols-1">
           <SpendingDonutChart data={categoryData} />
           <RecentActivityList transactions={transactions} />
         </div>
