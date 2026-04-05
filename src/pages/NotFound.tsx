@@ -1,14 +1,10 @@
 import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
-import { 
-  AlertCircle, 
-  ArrowRight, 
-  HelpCircle, 
-  Activity, 
-  Info,
-  ChevronRight
+import {
+  AlertCircle,
+  ArrowRight,
+  HelpCircle,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 export default function NotFound() {

@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { Zap, Home, CreditCard, Phone, Calendar } from "lucide-react";
+import { Zap, CreditCard, Phone, Calendar } from "lucide-react";
 import { formatCurrency } from "@/utils/calculations";
 
 const RECURRING_MOCK = [

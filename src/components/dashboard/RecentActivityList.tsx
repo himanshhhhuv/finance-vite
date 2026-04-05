@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { CreditCard, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import { formatCurrency, formatDate } from "@/utils/calculations";
 import { CATEGORY_ICONS } from "@/utils/icons";
 import type { Transaction } from "@/types/transaction.type";

@@ -10,14 +10,27 @@ interface SpendingDonutChartProps {
 export function SpendingDonutChart({ data }: SpendingDonutChartProps) {
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
+  if (data.length === 0 || total === 0) {
+    return (
+      <Card className="flex-1">
+        <CardHeader>
+          <CardTitle className="text-lg">Spending Breakdown</CardTitle>
+        </CardHeader>
+        <CardContent className="flex items-center justify-center h-[200px]">
+          <p className="text-sm text-muted-foreground">No spending data available</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <Card className="flex-1">
       <CardHeader>
         <CardTitle className="text-lg">Spending Breakdown</CardTitle>
       </CardHeader>
       <CardContent className="flex items-center gap-8 pt-6">
-        <div className="h-[170px] w-[170px] relative">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="h-[170px] w-[170px] relative min-h-[170px] min-w-[170px]">
+          <ResponsiveContainer width="100%" height="100%" minHeight={170} minWidth={170}>
             <PieChart>
               <Pie
                 data={data}

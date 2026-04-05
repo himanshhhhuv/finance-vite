@@ -1,7 +1,6 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarHeader,
   SidebarGroupContent,
@@ -12,16 +11,13 @@ import {
 } from "@/components/ui/sidebar";
 
 import { Link, useLocation } from "react-router";
-import { 
-  Sparkles,  
-  Zap, 
-  Settings, 
-  LayoutDashboard, 
-  History, 
-  ShieldCheck,
-  UserCircle 
+import {
+  Sparkles,
+  Zap,
+  Settings,
+  LayoutDashboard,
+  History,
 } from "lucide-react";
-import { useFinanceStore } from "@/store/usefinance.store";
 import { cn } from "@/lib/utils";
 
 const platformItems = [
@@ -36,7 +32,6 @@ const systemItems = [
 
 export function AppSidebar() {
   const location = useLocation();
-  const { role } = useFinanceStore();
 
   return (
     <Sidebar collapsible="icon" variant="inset" className="border-r-0 bg-sidebar">

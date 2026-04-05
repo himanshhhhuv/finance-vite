@@ -15,6 +15,7 @@ interface TransactionTableProps {
   transactions: Transaction[];
   role: string | null;
   onDelete: (id: string) => void;
+  onEdit?: (transaction: Transaction) => void;
   search: string;
   onSearchChange: (value: string) => void;
   categoryFilter: string;
@@ -25,6 +26,7 @@ export function TransactionTable({
   transactions,
   role,
   onDelete,
+  onEdit,
   search,
   onSearchChange,
   categoryFilter,
@@ -60,7 +62,7 @@ export function TransactionTable({
                   Amount
                 </TableHead>
                 {role === "admin" && (
-                  <TableHead className="w-[80px] h-12"></TableHead>
+                  <TableHead className="w-[120px] h-12"></TableHead>
                 )}
               </TableRow>
             </TableHeader>
@@ -81,6 +83,7 @@ export function TransactionTable({
                     tx={tx}
                     role={role}
                     onDelete={onDelete}
+                    onEdit={onEdit}
                   />
                 ))
               )}

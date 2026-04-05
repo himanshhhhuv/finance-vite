@@ -1,7 +1,7 @@
 import type { Transaction } from "@/types/transaction.type";
 import { formatCurrency, formatDate } from "@/utils/calculations";
 import { CATEGORY_ICONS } from "@/utils/icons";
-import { Trash2, HelpCircle } from "lucide-react";
+import { Trash2, Pencil, HelpCircle } from "lucide-react";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,9 +11,10 @@ interface TransactionRowProps {
   tx: Transaction;
   role: string | null;
   onDelete: (id: string) => void;
+  onEdit?: (transaction: Transaction) => void;
 }
 
-export function TransactionRow({ tx, role, onDelete }: TransactionRowProps) {
+export function TransactionRow({ tx, role, onDelete, onEdit }: TransactionRowProps) {
   const Icon = CATEGORY_ICONS[tx.category] || HelpCircle;
   const isIncome = tx.type === "income";
 
@@ -59,13 +60,28 @@ export function TransactionRow({ tx, role, onDelete }: TransactionRowProps) {
       </TableCell>
       {role === "admin" && (
         <TableCell className="pr-6">
-          <Button
-            variant="ghost"
-            className="h-8 w-8 text-muted-foreground hover:text-destructive hover:bg-destructive/10 opacity-0 group-hover:opacity-100 transition-all rounded-lg"
-            onClick={() => onDelete(tx.id)}
-          >
-            <Trash2 className="size-4" />
-          </Button>
+          <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            {onEdit && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 p-0 text-muted-foreground hover:text-blue-600 hover:bg-blue-600/10 transition-colors rounded-lg"
+                onClick={() => onEdit(tx)}
+                title="Edit transaction"
+              >
+                <Pencil className="size-4" />
+              </Button>
+            )}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 p-0 text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors rounded-lg"
+              onClick={() => onDelete(tx.id)}
+              title="Delete transaction"
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </div>
         </TableCell>
       )}
     </TableRow>

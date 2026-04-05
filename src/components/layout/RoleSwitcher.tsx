@@ -10,9 +10,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Shield, User } from "lucide-react";
+import type { Role } from "@/types/role.type";
 
 export function RoleSwitcher() {
   const { role, setRole } = useFinanceStore();
+
+  const handleRoleChange = (value: string) => {
+    if (value === "admin" || value === "viewer") {
+      setRole(value as Role);
+    }
+  };
 
   return (
     <DropdownMenu>
@@ -25,7 +32,7 @@ export function RoleSwitcher() {
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuLabel>Switch Role</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={role} onValueChange={(v) => setRole(v as any)}>
+        <DropdownMenuRadioGroup value={role} onValueChange={handleRoleChange}>
           <DropdownMenuRadioItem value="admin">Admin</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="viewer">Viewer</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>

@@ -104,8 +104,8 @@ export default function Dashboard() {
                 No transaction data to display
               </div>
             ) : (
-              <div style={{ width: "100%", height: 300 }}>
-                <ResponsiveContainer width="100%" height="100%">
+              <div style={{ width: "100%", height: 300, minHeight: 300 }}>
+                <ResponsiveContainer width="100%" height="100%" minHeight={300}>
                   <AreaChart
                     data={filteredMonthlyData}
                     margin={{ top: 10, right: 16, left: 0, bottom: 0 }}

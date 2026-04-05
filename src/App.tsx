@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import { DashboardLayout } from "./components/dashboard/layout/DashboardLayout"
 import Dashboard from "./pages/Dashboard"
 import Transactions from "./pages/Transactions"
@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound"
 export function App() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="/dashboard" element={<DashboardLayout><Dashboard /></DashboardLayout>} />
       <Route path="/transactions" element={<DashboardLayout><Transactions /></DashboardLayout>} />
       <Route path="/insights" element={<DashboardLayout><Insights /></DashboardLayout>} />
