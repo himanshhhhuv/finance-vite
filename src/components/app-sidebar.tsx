@@ -27,7 +27,7 @@ const platformItems = [
 ];
 
 const systemItems = [
-  { title: "Settings", url: "/settings", icon: Settings },
+  { title: "Settings", url: "#", icon: Settings },
 ];
 
 export function AppSidebar() {
